@@ -31,7 +31,7 @@ jobs:
           context: .
           file: Worker.dockerfile
           push: true
-          tags: quay.io/${{ secrets.QUAY_USERNAME }}/kebechet-version-manager-worker:latest,quay.io/${{ secrets.QUAY_USERNAME }}/kebechet-version-manager-worker:${{ env.RELEASE_VERSION }}
+          tags: quay.io/${{ secrets.QUAY_USERNAME }}/ttm-as-a-service-worker:latest,quay.io/${{ secrets.QUAY_USERNAME }}/ttm-as-a-service-worker:${{ env.RELEASE_VERSION }}
 
   Controller:
     runs-on: ubuntu-latest
@@ -58,4 +58,4 @@ jobs:
           context: .
           file: Controller.dockerfile
           push: true
-          tags: quay.io/${{ secrets.QUAY_USERNAME }}/kebechet-version-manager-controller:latest,quay.io/${{ secrets.QUAY_USERNAME }}/kebechet-version-manager-controller:${{ env.RELEASE_VERSION }}
+          tags: quay.io/${{ secrets.QUAY_USERNAME }}/ttm-as-a-service-controller:latest,quay.io/${{ secrets.QUAY_USERNAME }}/ttm-as-a-service-controller:${{ env.RELEASE_VERSION }}
