@@ -2,20 +2,20 @@ apiVersion: v1
 kind: BuildConfig
 metadata:
   labels:
-    app: version-manager
-  name: version-manager-worker-test
+    app: ttm-as-a-service
+  name: ttm-as-a-service-test
 spec:
   output:
     to:
       kind: ImageStreamTag
-      name: version-manager-worker:test
+      name: ttm-as-a-service:test
   runPolicy: Serial
   source:
     git:
-      uri: https://github.com/kpostoffice/kebechet-version-manager
+      uri: https://github.com/Gkrumbach07/ttm-as-a-service
       ref: master
     type: Git
   strategy:
     type: Docker
     dockerStrategy:
-      dockerfilePath: Worker.dockerfile
+      dockerfilePath: Dockerfile

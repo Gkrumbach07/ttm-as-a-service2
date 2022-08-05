@@ -1,14 +1,14 @@
 apiVersion: image.openshift.io/v1
 kind: ImageStream
 metadata:
-  name: version-manager-worker
+  name: ttm-as-a-service
 spec:
   lookupPolicy:
     local: true
   tags:
   - from:
       kind: DockerImage
-      name: quay.io/kpostlet/kebechet-version-manager-worker:v0.0.0
+      name: https://quay.io/repository/gkrumbach07/ttm-as-a-service:latest
     importPolicy: {}
     name: latest
     referencePolicy:

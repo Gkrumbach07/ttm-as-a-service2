@@ -1,14 +1,10 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-namespace: kebechet-version-manager
+namespace: ttm-as-a-service
 resources:
-- worker/imagestream.yaml
-- controller/deployment.yaml
-- controller/imagestream.yaml
-- controller/rolebinding.yaml
-- controller/role.yaml
-- controller/route.yaml
-- controller/serviceaccount.yaml
-- https://raw.githubusercontent.com/tektoncd/catalog/main/task/git-clone/0.6/git-clone.yaml
-- worker/tekton/version-update-pr-pipeline.yaml
-- worker/tekton/version-update-task.yaml
+- deployment.yaml
+- imagestream.yaml
+- rolebinding.yaml
+- role.yaml
+- route.yaml
+- serviceaccount.yaml

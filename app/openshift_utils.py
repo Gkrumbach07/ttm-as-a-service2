@@ -17,7 +17,7 @@ config.load_incluster_config = _load_incluster_config
 config.load_config()  # if we are in cluster, in_cluster = True
 v1 = client.CoreV1Api()
 
-secret_name = "kebechet-version-manager-{installation_id}"
+secret_name = "ttm-as-a-service-{installation_id}"
 
 if IN_CLUSTER:
     # Provided by ServiceAccountAdmissionController in kubernetes (docs: https://tinyurl.com/3snc8zj2)
@@ -35,7 +35,7 @@ def _create_expiration_timestamp() -> str:
 def create_github_token_secret(installation_id: str, token: str, gh_namespace: str):  # TODO: pass token as it appears in the GithubApp library
     meta = client.V1ObjectMeta(
         annotations={"expiration": _create_expiration_timestamp()},
-        labels={"app.kubernetes.io/created-by": "kebechet-version-manager"},
+        labels={"app.kubernetes.io/created-by": "ttm-as-a-service"},
         name=secret_name.format(installation_id=installation_id),
     )
     secret = client.V1Secret(
