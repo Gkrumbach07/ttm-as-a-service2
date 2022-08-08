@@ -15,9 +15,10 @@ app = Flask(__name__)
 
 app.config['GITHUBAPP_ID'] = int(os.environ['GITHUBAPP_ID'])
 app.config['GITHUBAPP_SECRET'] = os.environ['GITHUBAPP_SECRET']
+app.config['GITHUBAPP_KEY'] = os.environ['GITHUBAPP_KEY']
 
-with open(os.environ['GITHUBAPP_KEY_PATH'], 'rb') as key_file:
-    app.config['GITHUBAPP_KEY'] = key_file.read()
+# with open(os.environ['GITHUBAPP_KEY_PATH'], 'rb') as key_file:
+#     app.config['GITHUBAPP_KEY'] = key_file.read()
 
 github_app = GitHubApp(app)
 
