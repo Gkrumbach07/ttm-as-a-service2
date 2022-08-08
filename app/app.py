@@ -4,7 +4,7 @@ from flask import Flask
 from flask_githubapp import GitHubApp
 
 # import openshift_utils
-import ttm_github_pr
+from . import ttm_github_pr
 
 from dotenv import load_dotenv
 
