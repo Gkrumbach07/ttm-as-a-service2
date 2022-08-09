@@ -26,4 +26,6 @@ COPY --from=python-deps /opt/app-root/src/.venv /opt/app-root/src/.venv
 
 WORKDIR /opt/app-root/src
 
+EXPOSE 5000
+
 CMD source /opt/app-root/src/.venv/bin/activate && flask run
