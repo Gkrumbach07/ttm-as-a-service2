@@ -4,10 +4,10 @@ from flask import Flask
 from flask_githubapp import GitHubApp
 
 # import openshift_utils
-from . import ttm_github_pr
+import ttm_github_pr
 
 # from dotenv import load_dotenv
-#
+
 # load_dotenv()
 
 # from app import openshift_utils

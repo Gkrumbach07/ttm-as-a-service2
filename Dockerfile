@@ -26,6 +26,6 @@ COPY --from=python-deps /opt/app-root/src/.venv /opt/app-root/src/.venv
 
 WORKDIR /opt/app-root/src
 
-EXPOSE 5000
+EXPOSE 8080
 
-CMD source /opt/app-root/src/.venv/bin/activate && flask run
+CMD source /opt/app-root/src/.venv/bin/activate && gunicorn --workers 4 --bind 127.0.0.1:8080 wsgi:app

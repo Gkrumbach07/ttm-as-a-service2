@@ -9,6 +9,7 @@ flask-githubapp = "*"
 kubernetes = "*"
 requests = "*"
 srcopsmetrics = "*"
+gunicorn = "*"
 
 [dev-packages]
 
