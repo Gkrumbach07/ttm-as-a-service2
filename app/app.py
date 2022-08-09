@@ -23,6 +23,11 @@ app.config['GITHUBAPP_KEY'] = os.environ['GITHUBAPP_KEY']
 github_app = GitHubApp(app)
 
 
+@app.route('/')
+def root():
+    return "This is a webhook server"
+
+
 @github_app.on("pull_request")
 def process_pr_webhook():
     # TODO if model exists (training is done and model is published to seldon)
