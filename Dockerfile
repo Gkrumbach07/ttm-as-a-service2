@@ -27,4 +27,4 @@ COPY --from=python-deps /opt/app-root/src/.venv /opt/app-root/src/.venv
 WORKDIR /opt/app-root/src
 
 
-CMD source /opt/app-root/src/.venv/bin/activate && gunicorn --workers 4 --bind 127.0.0.1:8080 wsgi:app
+CMD source /opt/app-root/src/.venv/bin/activate && gunicorn --workers 4 --bind 0.0.0.0:8080 wsgi:app
