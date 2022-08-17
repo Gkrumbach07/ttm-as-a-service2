@@ -1,0 +1,46 @@
+apiVersion: apps.openshift.io/v1
+kind: DeploymentConfig
+metadata:
+  name: ttm-as-a-service-webhook-receiver
+spec:
+  replicas: 1
+  test: false
+  selector:
+    deploymentconfig: ttm-as-a-service-webhook-receiver
+    app.kubernetes.io/name: ttm-as-a-service
+    app.kubernetes.io/component: webhook-receiver
+    app.kubernetes.io/managed-by: aicoe-thoth-devops
+  template:
+    metadata:
+      labels:
+        deploymentconfig: ttm-as-a-service-webhook-receiver
+        app.kubernetes.io/name: ttm-as-a-service
+        app.kubernetes.io/component: webhook-receiver
+        app.kubernetes.io/managed-by: aicoe-thoth-devops
+    spec:
+      containers:
+        - name: ttm-as-a-service-webhook-receiver
+          image: ttm-as-a-service
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          env:
+            - name: PORT
+              value: "8080"
+            - name: GITHUBAPP_ID
+              valueFrom:
+                secretKeyRef:
+                  key: githubapp-id
+                  name: ttm-as-a-service
+            - name: GITHUBAPP_SECRET
+                valueFrom:
+                  secretKeyRef:
+                    key: githubapp-secret
+                    name: ttm-as-a-service
+            - name: GITHUBAPP_KEY
+                valueFrom:
+                  secretKeyRef:
+                    key: githubapp-key
+                    name: ttm-as-a-service
+      restartPolicy: Always

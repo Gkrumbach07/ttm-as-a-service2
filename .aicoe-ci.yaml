@@ -1,7 +1,5 @@
 # Setup and configuring aicoe-ci with configuration file `.aicoe-ci.yaml`
 # Example `.aicoe-ci.yaml` with a full list of config options is available here: https://github.com/AICoE/aicoe-ci/blob/master/docs/.aicoe-ci.yaml
----
-check: []
 # Uncomment following line to build a public image of this repo
 # - thoth-build
 # Uncomment following lines to build a public image of this repo
@@ -13,3 +11,17 @@ check: []
 #   registry-org: aicoe
 #   registry-project: <CHANGE-ME>
 #   registry-secret: aicoe-pusher-secret
+check:
+  - thoth-build
+build:
+  base-image: quay.io/thoth-station/s2i-thoth-ubi8-py38:v0.29.0
+  build-stratergy: "Source"
+  registry: "quay.io"
+  registry-org: "gkrumbach07"
+  registry-project: "ttm-as-a-service-webhook-receiver"
+  registry-secret: "QUAY_PUSHER_SECRET"
+deploy:
+  project-org: "gkrumbach07"
+  project-name: "ttm-as-a-service"
+  image-name: "ttm-as-a-service-webhook-receiver"
+#  overlay-contextpath: "sefkhet-abwy/overlays/ocp/imagestreamtag.yaml"

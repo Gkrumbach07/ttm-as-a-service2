@@ -1,0 +1,12 @@
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: sefkhet-abwy-webhook-receiver
+spec:
+  port:
+    targetPort: 8080-tcp
+  to:
+    kind: Service
+    name: sefkhet-abwy
+    weight: 100
