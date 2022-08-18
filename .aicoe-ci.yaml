@@ -19,7 +19,7 @@ build:
   registry: "quay.io"
   registry-org: "gkrumbach07"
   registry-project: "ttm-as-a-service-webhook-receiver"
-  registry-secret: "QUAY_PUSHER_SECRET"
+  registry-secret: "gkrumbach07-push-secret-pull-secret"
 deploy:
   project-org: "gkrumbach07"
   project-name: "ttm-as-a-service"
